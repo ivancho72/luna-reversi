@@ -1,3 +1,4 @@
+import React from 'react';
 export interface BoxProps {
   x: number;
   y: number;
