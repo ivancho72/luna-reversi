@@ -3,6 +3,7 @@ export interface BoxProps {
   x: number;
   y: number;
   size: number;
+  onClick?: () => void;
 }
 
 const Box = (props: BoxProps) => {
@@ -12,9 +13,10 @@ const Box = (props: BoxProps) => {
       y={props.y}
       width={props.size}
       height={props.size}
-      fill="none"
+      fill="gray"
       stroke="white"
       strokeWidth="1"
+      onClick={() => props.onClick && props.onClick()}
     />
   );
 };

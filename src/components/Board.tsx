@@ -11,6 +11,7 @@ enum BoardSates {
 const Board = () => {
   let gameData: BoardSates[][] = [];
   initBoardState(gameData);
+  const [boardData, setBoardData] = React.useState(gameData);
 
   const renderTiles = () => {
     const boxes = [];
@@ -21,7 +22,12 @@ const Board = () => {
             key={`BOX-${i}-${j}`}
             posX={i}
             posY={j}
-            state={gameData[i][j]}
+            state={boardData[i][j]}
+            onClick={() => {
+              boardData[i][j] = BoardSates.WHITE;
+              setBoardData([...boardData]);
+              console.log(JSON.stringify(boardData));
+            }}
           />,
         );
       }

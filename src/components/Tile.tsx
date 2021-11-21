@@ -4,6 +4,7 @@ export interface TileProps {
   posX: number;
   posY: number;
   state: 'BLACK' | 'WHITE' | 'EMPTY';
+  onClick: () => void;
 }
 
 const BOX_SIZE = 100 / 8;
@@ -16,6 +17,7 @@ const Tile = (props: TileProps) => {
         x={props.posX * BOX_SIZE}
         y={props.posY * BOX_SIZE + OFFSET_HEIGHT}
         size={BOX_SIZE}
+        onClick={props.onClick}
       />
       {(props.state === 'BLACK' || props.state === 'WHITE') && (
         <circle
